@@ -9,15 +9,52 @@ title: Programma
                 <h2 class="text-success">'t Boekske</h2>
                 <p style="max-width: 800px;">Met onderstaand formulier kan je 't Boekske genereren
             </div>
-            <form>
-                <div class="form-group"><label>Naam</label><input class="form-control" type="text"/></div>
-                <div class="form-group"><label>Onderwerp</label><input class="form-control" type="text"/></div>
-                <div class="form-group"><label>Mail</label><input class="form-control" type="email"/></div>
-                <div class="form-group"><label>Bericht</label><textarea class="form-control"></textarea></div>
-                <div class="form-group">
-                    <button class="btn btn-success btn-block" type="submit">Vergadering toevoegen</button>
+            <div class="row">
+                <div class="col-6">
+                    <form>
+                        <div class="form-group"><label>Vergadering</label>
+                            <input class="form-control" type="text" id="subject"/>
+                        </div>
+                        <div class="form-group"><label>Startdatum</label>
+                            <input class="form-control" type="text" id="startDate"/>
+                        </div>
+                        <div class="form-group"><label>Startuur</label>
+                            <input class="form-control" type="text" id="startTime"/>
+                        </div>
+                        <div class="form-group"><label>Einddatum</label>
+                            <input class="form-control" type="text" id="endDate"/>
+                        </div>
+                        <div class="form-group"><label>Einduur</label>
+                            <input class="form-control" type="text" id="endTime"/>
+                        </div>
+                        <div class="form-group"><label>Beschrijving</label>
+                            <textarea class="form-control" id="description"></textarea>
+                        </div>
+                        <div class="form-group"><label>Locatie</label>
+                            <input class="form-control" type="text" id="location"/>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-success btn-block" type="button">
+                                <a onclick='vergaderingNaarArray();'
+                                >Vergadering toevoegen</a></button>
+                        </div>
+                    </form>
                 </div>
-            </form>
+                <div class="col-6">
+                    <div class="block-content">
+                        <div class="clean-blog-post">
+                            <ul class="list-group" id="vergaderingenList">
+                            </ul>
+                            <br>
+                            <button class="btn btn-success btn-block" type="button">
+                                <a onclick='downloadCSV({ filename: "boekske.csv" });'
+                                >Download 't Boekske</a>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 </main>
