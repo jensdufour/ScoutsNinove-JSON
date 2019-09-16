@@ -13,11 +13,13 @@ title: Programma
                 <div class="col-6">
                     <form id="vergaderingFormulier">
                         <div class="form-row">
-                            <div class="form-group col-8"><label>Vergadering</label>
+                            <div class="form-group col-12"><label>Vergadering</label>
                                 <input class="form-control" type="text" id="subject"/>
                             </div>
-                            <div class="form-group col-4"><label>Locatie</label>
-                                <input class="form-control" type="text" id="location" value="Huifkarweg 1"/>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-12"><label>Afbeeldingslink</label>
+                                <input class="form-control" type="text" id="afbeelding"/>
                             </div>
                         </div>
                         <br>
@@ -59,7 +61,7 @@ title: Programma
                             </ul>
                             <br>
                             <button class="btn btn-success btn-block" type="button">
-                                <a onclick='downloadCSV({ filename: "boekske.json" });'
+                                <a onclick='downloadCSV({ filename: "boeksken.json" });'
                                 >Download 't Boekske</a>
                             </button>
                         </div>
