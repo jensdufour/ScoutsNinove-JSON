@@ -15,39 +15,37 @@
     <section class="clean-block clean-form dark">
         <div class="container">
             <div class="block-heading">
-                <h2 class="text-success">'t Boekske</h2>
-                <p style="max-width: 800px;">Met onderstaand formulier kan je 't Boekske genereren
             </div>
             <div class="row">
                 <div class="col-6">
                     <form id="vergaderingFormulier">
                         <div class="form-row">
                             <div class="form-group col-12"><label>Vergadering (Verplicht)</label>
-                                <input class="form-control" type="text" id="subject"/>
+                                <input class="form-control" type="text" id="subject" />
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-12"><label>Afbeeldingslink</label>
-                                <input class="form-control" type="text" id="afbeelding" value=""/>
+                                <input class="form-control" type="text" id="afbeelding" value="" />
                             </div>
                         </div>
                         <br>
                         <div class="form-row">
                             <div class="col"><label>Startdatum (Verplicht)</label>
-                                <input class="form-control" type="date" id="startDate"/>
+                                <input class="form-control" type="date" id="startDate" />
                             </div>
                             <div class="col"><label>Einddatum</label>
-                                <input class="form-control" type="date" id="endDate" value=""/>
+                                <input class="form-control" type="date" id="endDate" value="" />
                             </div>
                         </div>
                         <br>
                         <div class="form-row">
                             <div class="col"><label>Startuur (Verplicht)</label>
-                                <input class="form-control" type="text" id="startTime" value="14:00"/>
+                                <input class="form-control" type="text" id="startTime" value="14:00" />
                             </div>
 
                             <div class="col"><label>Einduur (Verplicht)</label>
-                                <input class="form-control" type="text" id="endTime" value="17:00"/>
+                                <input class="form-control" type="text" id="endTime" value="17:00" />
                             </div>
                         </div>
                         <br>
@@ -56,9 +54,8 @@
                         </div>
 
                         <div class="form-group">
-                            <button class="btn btn-success btn-block" type="button">
-                                <a onclick='vergaderingNaarArray();'
-                                >Vergadering toevoegen</a></button>
+                            <button onclick='vergaderingNaarArray();' class="btn btn-success btn-block" type="button">
+                                <a onclick='vergaderingNaarArray();'>Vergadering toevoegen</a></button>
                         </div>
                     </form>
                 </div>
@@ -69,15 +66,13 @@
                             <ul class="list-group" id="vergaderingenList">
                             </ul>
                             <br>
-                            <button class="btn btn-success btn-block" type="button">
-                                <a onclick='downloadCSV()''
-                                >Download 't Boekske</a>
+                            <button onclick='downloadCSV({ filename: "boeksken.json" });' class="btn btn-success btn-block" type="button">
+                                <a onclick='downloadCSV({ filename: "boeksken.json" });'>Download</a>
                             </button>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
 </main>
