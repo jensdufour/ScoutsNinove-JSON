@@ -1,6 +1,9 @@
 language: ruby
 cache: bundler
-before_install: gem update bundler
+os: linux
+before_install:
+  - yes | gem update --system --force
+  - gem install bundler
 install:
   - bundle install
 branches:
@@ -9,10 +12,11 @@ branches:
 script:
   - JEKYLL_ENV=production bundle exec jekyll build --destination site
 deploy:
-  provider: pages
-  skip-cleanup: true
-  github-token: $GITHUB_TOKEN
-  keep-history: true
-  local-dir: ./site
-  on:
-    branch: master
+  - provider: pages:git
+    token: $GITHUB_TOKEN
+    edge: true
+    skip_cleanup: true
+    keep_history: true
+    local_dir: ./site
+    on:
+      branch: master
