@@ -1,69 +1,42 @@
----
-layout: default
-title: Programma
----
-<main class="page contact-us-page">
-    <section class="clean-block clean-form dark">
-        <div class="container">
-            <div class="block-heading">
-            </div>
-            <div class="row">
-                <div class="col-6">
-                    <form id="vergaderingFormulier">
-                        <div class="form-row">
-                            <div class="form-group col-12"><label>Vergadering (Verplicht)</label>
-                                <input class="form-control" type="text" id="subject" />
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-12"><label>Afbeeldingslink</label>
-                                <input class="form-control" type="text" id="afbeelding" value="" />
-                            </div>
-                        </div>
-                        <br>
-                        <div class="form-row">
-                            <div class="col"><label>Startdatum (Verplicht)</label>
-                                <input class="form-control" type="date" id="startDate" />
-                            </div>
-                            <div class="col"><label>Einddatum</label>
-                                <input class="form-control" type="date" id="endDate" value="" />
-                            </div>
-                        </div>
-                        <br>
-                        <div class="form-row">
-                            <div class="col"><label>Startuur (Verplicht)</label>
-                                <input class="form-control" type="text" id="startTime" value="14:00" />
-                            </div>
-
-                            <div class="col"><label>Einduur (Verplicht)</label>
-                                <input class="form-control" type="text" id="endTime" value="17:00" />
-                            </div>
-                        </div>
-                        <br>
-                        <div class="form-group"><label>Beschrijving (Verplicht)</label>
-                            <textarea class="form-control" id="description"></textarea>
-                        </div>
-
-                        <div class="form-group">
-                            <button onclick='vergaderingNaarArray();' class="btn btn-success btn-block" type="button">
-                                <a onclick='vergaderingNaarArray();'>Vergadering toevoegen</a></button>
-                        </div>
-                    </form>
-                </div>
-                <div class="col-1"></div>
-                <div class="col-5">
-                    <div class="block-content">
-                        <div class="clean-blog-post">
-                            <ul class="list-group" id="vergaderingenList">
-                            </ul>
-                            <br>
-                            <button onclick='downloadCSV({ filename: "boeksken.json" });' class="btn btn-success btn-block" type="button">
-                                <a onclick='downloadCSV({ filename: "boeksken.json" });'>Download</a>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-</main>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Scouts Ninove - JSON</title>
+    <link rel="stylesheet" style="text/css" href="deps/opt/bootstrap.css" />
+  </head>
+  <body>
+    <h1>Scouts Ninove JSON Generator</h1>
+    <form></form>
+    <div id="res" class="alert"></div>
+    <script type="text/javascript" src="deps/jquery.min.js"></script>
+    <script type="text/javascript" src="deps/underscore.js"></script>
+    <script type="text/javascript" src="deps/opt/jsv.js"></script>
+    <script type="text/javascript" src="lib/jsonform.js"></script>
+    <script type="text/javascript">
+      $('form').jsonForm({
+        schema: {
+          name: {
+            type: 'string',
+            title: 'Name',
+            required: true
+          },
+          age: {
+            type: 'number',
+            title: 'Age'
+          }
+        },
+        onSubmit: function (errors, values) {
+          if (errors) {
+            $('#res').html('<p>I beg your pardon?</p>');
+          }
+          else {
+            $('#res').html('<p>Hello ' + values.name + '.' +
+              (values.age ? '<br/>You are ' + values.age + '.' : '') +
+              '</p>');
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
